@@ -1,0 +1,11 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "globals": {
+    "React": true
+  },
+  "rules": {
+    "no-console": 0,
+    "no-underscore-dangle": 0
+  }
+}
