@@ -1,0 +1,9 @@
+{
+  "extends": ["tslint:latest", "tslint-config-airbnb", "tslint-config-prettier"],
+  "rules": {
+    "no-console": {
+      "severity": "warning",
+      "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+    }
+  }
+}
