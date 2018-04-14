@@ -1,0 +1,7 @@
+templates:
+  params:
+    author-email: zack@kourouma.me
+    author-name: Zack Kourouma
+    github-username: zkourouma
+
+system-ghc: true
