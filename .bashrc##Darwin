@@ -37,6 +37,8 @@ export GOROOT_BOOTSTRAP=$GOROOT
 export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
 source "/Users/zack/.cargo/env"
 
+export GPG_TTY=$(tty)
+
 ### Added by the Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
 export PATH="$PATH:/opt/resty/luajit/bin"
