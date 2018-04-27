@@ -91,7 +91,6 @@ set modifiable
 au FileType python setl sw=4 sts=4 et
 
 let g:ale_linters = {
-      \ 'elixir': ['credo'],
       \ 'typescript': ['tslint']
       \ }
 
