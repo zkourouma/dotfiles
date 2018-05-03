@@ -24,9 +24,8 @@ alias .....='cd ../../../../'
 alias grep='grep -n --color=auto'
 alias egrep='egrep -n --color=auto'
 
-
 alias gitl='git log --all --decorate --graph --pretty=oneline'
-alias gitback='git checkout -'
+alias stack-default='stack test --fast --haddock-deps --file-watch'
 
 # alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
 alias pngkarl='pngcrush -ow -rem allb -brute -reduce -l9'
