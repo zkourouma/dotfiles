@@ -4,9 +4,13 @@ if [ -f /home/zack/.bashrc ]; then
    source /home/zack/.bashrc
 fi
 
+if [ -f /home/zack/.work-tokens.sh ]; then
+   source /home/zack/.work-tokens.sh
+fi
+
 source /usr/share/git/git-prompt.sh
 
-alias ll='ls -laGh'
+alias ll='ls -laGh --color=auto'
 alias mkdirp='mkdir -pv'
 alias diff='colordiff'
 
