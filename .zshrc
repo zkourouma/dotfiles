@@ -79,6 +79,32 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin/git:$PATH
+export PATH=/home/zack/.local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+
+export PATH=/usr/local/share/python:$PATH
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$HOME/go/third/bin
+export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
+export NVM_DIR="$HOME/.nvm"
+
+export CLICOLOR=1
+
+export GPG_TTY=$(tty)
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+[[ -s "/home/zack/.gvm/scripts/gvm" ]] && source "/home/zack/.gvm/scripts/gvm"
+export GOROOT_BOOTSTRAP=$GOROOT
+export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -107,31 +133,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin/git:$PATH
-export PATH=/home/zack/.local/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-
-export PATH=/usr/local/share/python:$PATH
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:$HOME/go/third/bin
-export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
-export NVM_DIR="$HOME/.nvm"
-
-export CLICOLOR=1
-
-export GPG_TTY=$(tty)
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-[[ -s "/home/zack/.gvm/scripts/gvm" ]] && source "/home/zack/.gvm/scripts/gvm"
-export GOROOT_BOOTSTRAP=$GOROOT
-export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
-
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias exa='exa -lah'
 alias mkdirp='mkdir -pv'
