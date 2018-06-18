@@ -1,6 +1,6 @@
 source /usr/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf
 
-set -g default-shell "/usr/bin/bash"
+set -g default-shell "/usr/bin/zsh"
 
 set-option -g default-terminal "xterm-256color"
 set-option -ga terminal-overrides ",xterm-256color:Tc,rxvt-unicode-256color:Tc"
