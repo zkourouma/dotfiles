@@ -67,6 +67,7 @@ plugins=(
   mix
   nvm
   postgres
+  sudo
   tmux
   vi-mode
   vundle
