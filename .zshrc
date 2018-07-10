@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/zack/.oh-my-zsh"
+export ZSH="/home/zack/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -60,12 +60,12 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   archlinux
+  asdf
   aws
   colored-man-pages
   common-aliases
   git
   mix
-  nvm
   postgres
   sudo
   tmux
@@ -91,7 +91,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$HOME/go/third/bin
 export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
-export NVM_DIR="$HOME/.nvm"
 
 export CLICOLOR=1
 
@@ -99,12 +98,11 @@ export GPG_TTY=$(tty)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-[[ -s "/home/zack/.gvm/scripts/gvm" ]] && source "/home/zack/.gvm/scripts/gvm"
 export GOROOT_BOOTSTRAP=$GOROOT
 export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -135,7 +133,9 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias ll='ls -lah'
 alias exa='exa -lah'
 alias mkdirp='mkdir -pv'
 alias stack-default='stack test --fast --haddock-deps --file-watch'
 alias ycm-update='pushd ~/.vim/bundle/YouCompleteMe && python install.py --tern-completer --gocode-completer --racer-completer --clang-completer --system-libclang --system-boost && popd'
+

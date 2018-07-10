@@ -58,14 +58,13 @@ Plugin 'OCamlPro/ocp-indent'
 call vundle#end()
 
 set nocompatible
-let mapleader=","
+let mapleader="\<Space>"
 
 set t_Co=256
 
 hi Normal ctermbg=NONE
 
 filetype on
-" Enable syntax highlighting
 syntax enable
 
 set shiftwidth=2
@@ -95,23 +94,22 @@ let g:ale_linters = {
       \ }
 
 let g:ale_fixers = {
-      \ 'elm': ['format'],
-      \ 'go': ['gofmt'],
-      \ 'haskell': ['hfmt'],
-      \ 'javascript': ['eslint', 'prettier'],
-      \ 'typescript': ['prettier', 'tslint'],
-      \ 'json': ['prettier'],
-      \ 'less': ['prettier'],
-      \ 'ocaml': ['merlin'],
-      \ 'reason': ['merlin']
+      \ 'elm': ['format', 'trim_whitespace'],
+      \ 'elixir': ['trim_whitespace'],
+      \ 'go': ['gofmt', 'trim_whitespace'],
+      \ 'haskell': ['hfmt', 'trim_whitespace'],
+      \ 'javascript': ['eslint', 'prettier', 'trim_whitespace'],
+      \ 'json': ['prettier', 'trim_whitespace'],
+      \ 'less': ['prettier', 'trim_whitespace'],
+      \ 'ocaml': ['merlin', 'trim_whitespace'],
+      \ 'reason': ['merlin', 'trim_whitespace'],
+      \ 'typescript': ['prettier', 'tslint', 'trim_whitespace']
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 0
 let g:airline#extensions#ale#enabled = 1
-
-" let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 120'
 
 let g:pymode_lint_ignore='E501,E309,E731,E266'
 let g:pymode_virtualenv = 1
@@ -121,6 +119,9 @@ let g:pymode_python='python3'
 
 let g:go_fmt_command = "goimports"
 let g:elm_format_autosave = 1
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 augroup vimrc_autocmd
 
