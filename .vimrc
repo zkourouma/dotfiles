@@ -57,6 +57,7 @@ Plugin 'OCamlPro/ocp-indent'
 " All of your Plugins must be added before the following line
 call vundle#end()
 
+set shell=/usr/bin/zsh
 set nocompatible
 let mapleader="\<Space>"
 
@@ -122,6 +123,7 @@ let g:elm_format_autosave = 1
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>mf :execute "ALEFix mix_format"<CR>
 
 augroup vimrc_autocmd
 
