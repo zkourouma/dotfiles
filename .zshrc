@@ -87,16 +87,15 @@ export PATH=/usr/local/bin:$PATH
 
 export PATH=/usr/local/share/python:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$HOME/go/third/bin
 export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
 
+
+export EXERCISM_CONFIG_FILE=$HOME/.exercism.json
 export CLICOLOR=1
 
 export GPG_TTY=$(tty)
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export GOROOT_BOOTSTRAP=$GOROOT
 export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
