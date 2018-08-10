@@ -105,7 +105,7 @@ let g:ale_fixers = {
       \ 'ocaml': ['merlin', 'trim_whitespace'],
       \ 'reason': ['merlin', 'trim_whitespace'],
       \ 'typescript': ['prettier', 'tslint', 'trim_whitespace'],
-      \ 'yaml': ['trim_whitespace'],
+      \ 'yaml': ['prettier', 'trim_whitespace'],
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1

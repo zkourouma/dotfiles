@@ -86,10 +86,10 @@ export PATH=/home/zack/.local/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 export PATH=/usr/local/share/python:$PATH
-
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$HOME/go/third/bin
 export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
+export PATH=$PATH:$HOME/.asdf/installs/rust/beta/bin
 
 
 export EXERCISM_CONFIG_FILE=$HOME/.config/exercism/user.json
@@ -103,6 +103,7 @@ export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+source $HOME/.asdf/installs/rust/beta/env
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -138,4 +139,5 @@ alias exa='exa -lah'
 alias mkdirp='mkdir -pv'
 alias stack-default='stack test --fast --haddock-deps --file-watch'
 alias ycm-update='pushd ~/.vim/bundle/YouCompleteMe && python install.py --tern-completer --gocode-completer --racer-completer --clang-completer --system-libclang --system-boost && popd'
+alias pkgs='pacman -Qqe > pkglist.txt'
 
