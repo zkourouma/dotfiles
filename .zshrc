@@ -140,4 +140,3 @@ alias mkdirp='mkdir -pv'
 alias stack-default='stack test --fast --haddock-deps --file-watch'
 alias ycm-update='pushd ~/.vim/bundle/YouCompleteMe && python install.py --tern-completer --gocode-completer --racer-completer --clang-completer --system-libclang --system-boost && popd'
 alias pkgs='pacman -Qqe > pkglist.txt'
-
