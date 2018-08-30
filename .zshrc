@@ -134,6 +134,11 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias diff='diff-so-fancy'
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
 alias ll='ls -lah'
 alias exa='exa -lah'
 alias mkdirp='mkdir -pv'

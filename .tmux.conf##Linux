@@ -1,4 +1,4 @@
-source /usr/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf
+source /usr/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf
 
 set -g default-shell "/usr/bin/zsh"
 
@@ -28,8 +28,8 @@ bind - split-window -v
 # renumber windows
 set-option -g renumber-windows on
 
-#set -g mode-mouse on
-#set -g mouse-resize-pane on
-#set -g mouse-select-pane on
-#set -g mouse-select-window on
+# set -g mode-mouse on
+# set -g mouse-resize-pane on
+# set -g mouse-select-pane on
+# set -g mouse-select-window on
 set-option -sg escape-time 10

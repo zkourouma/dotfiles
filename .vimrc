@@ -91,11 +91,12 @@ set modifiable
 au FileType python setl sw=4 sts=4 et
 
 let g:ale_linters = {
+      \ 'elixir': ['mix', 'credo'],
       \ 'typescript': ['tslint']
       \ }
 
 let g:ale_fixers = {
-      \ 'elm': ['format', 'trim_whitespace'],
+      \ 'elm': ['elm-format', 'trim_whitespace'],
       \ 'elixir': ['trim_whitespace'],
       \ 'go': ['gofmt', 'trim_whitespace'],
       \ 'haskell': ['hfmt', 'trim_whitespace'],
