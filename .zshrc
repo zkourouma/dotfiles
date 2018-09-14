@@ -137,7 +137,7 @@ fi
 alias diff='diff-so-fancy'
 alias cat='bat'
 alias ping='prettyping --nolegend'
-alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules --exclude .stack-work --exclude elm-stuff"
 alias help='tldr'
 alias ll='ls -lah'
 alias exa='exa -lah'
