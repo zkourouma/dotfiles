@@ -20,6 +20,7 @@ bind C-k select-pane -U
 bind C-j select-pane -D
 bind C-h select-pane -L
 bind C-l select-pane -R
+bind-key C-s choose-tree -Z "swap-pane -t %%"
 
 unbind %
 bind | split-window -h
