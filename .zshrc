@@ -91,6 +91,8 @@ export PATH=$PATH:$HOME/go/third/bin
 export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
 export PATH=$PATH:$HOME/.asdf/installs/rust/beta/bin
 
+export PATH=/home/zack/.ssi/bin:$PATH
+
 
 export EXERCISM_CONFIG_FILE=$HOME/.config/exercism/user.json
 export CLICOLOR=1
@@ -143,5 +145,5 @@ alias ll='ls -lah'
 alias exa='exa -lah'
 alias mkdirp='mkdir -pv'
 alias stack-default='stack test --fast --haddock-deps --file-watch'
-alias ycm-update='pushd ~/.vim/bundle/YouCompleteMe && python install.py --tern-completer --gocode-completer --racer-completer --clang-completer --system-libclang --system-boost && popd'
+alias ycm-update='pushd ~/.vim/bundle/YouCompleteMe && python install.py --tern-completer && popd'
 alias pkgs='pacman -Qqe > pkglist.txt'
