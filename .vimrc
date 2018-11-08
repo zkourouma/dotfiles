@@ -9,7 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Konfekt/FastFold'
@@ -30,7 +30,7 @@ Plugin 'shumphrey/fugitive-gitlab.vim'
 Plugin 'airblade/vim-gitgutter'
 
 Plugin 'python-mode/python-mode'
-Plugin 'ternjs/tern_for_vim'
+" Plugin 'ternjs/tern_for_vim'
 Plugin 'reasonml/vim-reason-loader'
 
 Plugin 'elixir-editors/vim-elixir'
@@ -52,7 +52,20 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'ocaml/merlin'
 Plugin 'OCamlPro/ocp-indent'
+  
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'Shougo/neco-syntax'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'carlitux/deoplete-ternjs'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+" sudo pip install neovim
+" sudo pip install greenlet==0.4.10
 
+
+set encoding=utf-8
+let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = '/usr/bin/python'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -114,6 +127,11 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 0
 let g:airline#extensions#ale#enabled = 1
 
+let g:deoplete#sources#ternjs#filetypes = [
+      \ 'jsx',
+      \ 'javascript.jsx'
+      \ ]
+
 let g:pymode_lint_ignore='E501,E309,E731,E266'
 let g:pymode_virtualenv = 1
 let g:pymode_virtualenv_path = $VIRTUAL_ENV
@@ -126,6 +144,9 @@ let g:elm_format_autosave = 1
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 nnoremap <Leader>mf :execute "ALEFix mix_format"<CR>
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 augroup vimrc_autocmd
 
@@ -146,10 +167,10 @@ let g:gitgutter_escape_grep = 1
 " let g:gitgutter_realtime = 1
 
 
-let g:ycm_python_binary_path = 'python'
-let g:ycm_semantic_triggers = {
-      \ 'elm' : ['.']
-      \}
+" let g:ycm_python_binary_path = 'python'
+" let g:ycm_semantic_triggers = {
+"       \ 'elm' : ['.']
+"       \}
 
 augroup myvimrchooks
 	au!
