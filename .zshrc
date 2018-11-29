@@ -80,6 +80,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+fpath+=~/.zfunc
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin/git:$PATH
 export PATH=/home/zack/.local/bin:$PATH
@@ -89,7 +90,6 @@ export PATH=/usr/local/share/python:$PATH
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$HOME/go/third/bin
 export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
-export PATH=$PATH:$HOME/.asdf/installs/rust/beta/bin
 
 export PATH=/home/zack/.ssi/bin:$PATH
 
@@ -105,7 +105,6 @@ export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-source $HOME/.asdf/installs/rust/beta/env
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
