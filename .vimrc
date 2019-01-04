@@ -144,6 +144,7 @@ let g:pymode_python='python3'
 
 let g:go_fmt_command = "goimports"
 let g:elm_format_autosave = 1
+let g:rustfmt_autosave = 1
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
