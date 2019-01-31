@@ -65,7 +65,7 @@ Plugin 'slashmili/alchemist.vim'
 
 
 set encoding=utf-8
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog = '/usr/bin/python'
 
 " All of your Plugins must be added before the following line
@@ -127,6 +127,7 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 0
 let g:airline#extensions#ale#enabled = 1
+let g:ale_elm_format_options = '--yes --elm-version=0.19'
 
 " let g:deoplete#sources#ternjs#filetypes = [
 "       \ 'jsx',
@@ -149,6 +150,9 @@ let g:rustfmt_autosave = 1
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 nnoremap <Leader>mf :execute "ALEFix mix_format"<CR>
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
