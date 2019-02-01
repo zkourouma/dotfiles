@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Konfekt/FastFold'
 Plugin 'mileszs/ack.vim'
+Plugin 'edkolev/tmuxline.vim'
 
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-commentary'

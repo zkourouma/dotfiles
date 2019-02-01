@@ -1,4 +1,4 @@
-source /usr/lib/python3.7/site-packages/powerline/bindings/tmux/powerline.conf
+source $HOME/.config/tmuxline.conf
 
 set -g default-shell "/usr/bin/zsh"
 
@@ -26,11 +26,18 @@ unbind %
 bind | split-window -h
 bind - split-window -v
 
+unbind v
+bind v paste-buffer
+
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection
+
 # renumber windows
 set-option -g renumber-windows on
+set-option -g status-bg colour235
 
 # set -g mode-mouse on
 # set -g mouse-resize-pane on
 # set -g mouse-select-pane on
 # set -g mouse-select-window on
-set-option -sg escape-time 10
+set-option -sg escape-time 5
