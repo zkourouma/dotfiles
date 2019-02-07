@@ -92,7 +92,6 @@ export PATH=$PATH:$HOME/go/third/bin
 export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
 
 export PATH=/home/zack/.ssi/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
 
 
 export EXERCISM_CONFIG_FILE=$HOME/.config/exercism/user.json

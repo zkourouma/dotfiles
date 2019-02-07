@@ -86,14 +86,13 @@ syntax enable
 set shiftwidth=2
 set tabstop=2
 
-" let g:solarized_termcolors=256
 set termguicolors
 set background=dark
 colorscheme vim-material
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-let g:airline_theme='material'
+let g:airline_theme='deus'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,node_modules/**,*/node_modules/**,*/public/**,assets/develop/**,Godeps/**,*/Godeps/**,.cabal-sandbox
 
