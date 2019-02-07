@@ -92,6 +92,7 @@ export PATH=$PATH:$HOME/go/third/bin
 export PATH="$PATH:$(yarn global dir)/node_modules/.bin"
 
 export PATH=/home/zack/.ssi/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 
 export EXERCISM_CONFIG_FILE=$HOME/.config/exercism/user.json
@@ -105,7 +106,6 @@ export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-source $HOME/.cargo/env
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
