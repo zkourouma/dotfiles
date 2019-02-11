@@ -105,6 +105,7 @@ set modifiable
 au FileType python setl sw=4 sts=4 et
 
 let g:ale_linters = {
+      \ 'haskell': ['hlint', 'hie-wrapper'],
       \ 'elixir': ['mix', 'credo'],
       \ 'typescript': ['tslint']
       \ }
@@ -113,7 +114,7 @@ let g:ale_fixers = {
       \ 'elm': ['elm-format', 'trim_whitespace'],
       \ 'elixir': ['trim_whitespace'],
       \ 'go': ['gofmt', 'trim_whitespace'],
-      \ 'haskell': ['hfmt', 'trim_whitespace'],
+      \ 'haskell': ['hlint', 'brittany', 'trim_whitespace'],
       \ 'javascript': ['eslint', 'prettier', 'trim_whitespace'],
       \ 'json': ['prettier', 'trim_whitespace'],
       \ 'less': ['prettier', 'trim_whitespace'],
@@ -128,6 +129,7 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_elm_format_options = '--yes --elm-version=0.19'
+let g:ale_haskell_hlint_executable = 'stack'
 
 " let g:deoplete#sources#ternjs#filetypes = [
 "       \ 'jsx',
