@@ -97,6 +97,7 @@ set colorcolumn=100
 set modifiable
 
 au FileType python setl sw=4 sts=4 et
+let g:airline#extensions#tmuxline#enabled = 0
 
 let g:ale_linters = {
       \ 'haskell': ['hlint', 'hie-wrapper'],
