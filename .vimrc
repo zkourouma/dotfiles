@@ -1,76 +1,70 @@
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+let g:ale_completion_enabled = 1
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin()
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Konfekt/FastFold'
-Plugin 'mileszs/ack.vim'
-Plugin 'edkolev/tmuxline.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Konfekt/FastFold'
+Plug 'mileszs/ack.vim'
+Plug 'edkolev/tmuxline.vim'
 
-Plugin 'w0rp/ale'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'hzchirs/vim-material'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'hzchirs/vim-material'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'shumphrey/fugitive-gitlab.vim'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'python-mode/python-mode'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'reasonml/vim-reason-loader'
+Plug 'python-mode/python-mode'
+Plug 'ternjs/tern_for_vim'
+Plug 'reasonml/vim-reason-loader'
 
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'ElmCast/elm-vim'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/html5.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'fatih/vim-go'
-Plugin 'groenewege/vim-less'
-Plugin 'jrk/vim-ocaml'
-Plugin 'cespare/vim-toml'
-Plugin 'stephpy/vim-yaml'
-Plugin 'rust-lang/rust.vim'
-Plugin 'elzr/vim-json'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'elixir-editors/vim-elixir'
+Plug 'JakeBecker/elixir-ls'
+Plug 'ElmCast/elm-vim'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'haskell/haskell-ide-engine'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'sourcegraph/javascript-typescript-langserver'
+Plug 'othree/html5.vim'
+Plug 'mxw/vim-jsx'
+Plug 'fatih/vim-go'
+Plug 'groenewege/vim-less'
+Plug 'jrk/vim-ocaml'
+Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
+Plug 'redhat-developer/yaml-language-server'
+Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rls'
+Plug 'elzr/vim-json'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
-Plugin 'ocaml/merlin'
-Plugin 'OCamlPro/ocp-indent'
+Plug 'ocaml/merlin'
+Plug 'OCamlPro/ocp-indent'
   
-" Plugin 'Shougo/deoplete.nvim'
-" Plugin 'Shougo/neco-syntax'
-Plugin 'slashmili/alchemist.vim'
-" Plugin 'carlitux/deoplete-ternjs'
-" Plugin 'mhartington/nvim-typescript'
-" Plugin 'roxma/nvim-yarp'
-" Plugin 'roxma/vim-hug-neovim-rpc'
+Plug 'slashmili/alchemist.vim'
+Plug 'kchmck/vim-coffee-script'
 " sudo pip install neovim
 " sudo pip install greenlet==0.4.10
 
+call plug#end()
 
 set encoding=utf-8
-" let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog = '/usr/bin/python'
-
-" All of your Plugins must be added before the following line
-call vundle#end()
 
 set shell=/usr/bin/zsh
 set nocompatible
@@ -106,7 +100,7 @@ au FileType python setl sw=4 sts=4 et
 
 let g:ale_linters = {
       \ 'haskell': ['hlint', 'hie-wrapper'],
-      \ 'elixir': ['mix', 'credo'],
+      \ 'elixir': ['mix', 'credo', 'elixir-ls'],
       \ 'typescript': ['tslint']
       \ }
 
@@ -131,10 +125,12 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_elm_format_options = '--yes --elm-version=0.19'
 let g:ale_haskell_hlint_executable = 'stack'
 
-" let g:deoplete#sources#ternjs#filetypes = [
-"       \ 'jsx',
-"       \ 'javascript.jsx'
-"       \ ]
+let g:LanguageClient_serverCommands = {
+    \ 'elixir': ['elixir-ls'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'haskell': ['hie-wrapper'] ,
+    \ 'javascript': ['tsserver', 'javascript-typescript-langserver'],
+    \ }
 
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
@@ -155,9 +151,6 @@ nnoremap <Leader>mf :execute "ALEFix mix_format"<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 augroup vimrc_autocmd
 
