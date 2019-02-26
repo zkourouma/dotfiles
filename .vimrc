@@ -46,7 +46,7 @@ Plug 'groenewege/vim-less'
 Plug 'jrk/vim-ocaml'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
-Plug 'redhat-developer/yaml-language-server'
+" Plug 'redhat-developer/yaml-language-server'
 Plug 'rust-lang/rust.vim'
 Plug 'rust-lang/rls'
 Plug 'elzr/vim-json'
@@ -116,8 +116,8 @@ let g:ale_fixers = {
       \ 'ocaml': ['merlin', 'trim_whitespace'],
       \ 'reason': ['merlin', 'trim_whitespace'],
       \ 'typescript': ['prettier', 'tslint', 'trim_whitespace'],
-      \ 'yaml': ['prettier', 'trim_whitespace'],
       \ }
+      " \ 'yaml': ['prettier', 'trim_whitespace'],
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
@@ -130,7 +130,7 @@ let g:LanguageClient_serverCommands = {
     \ 'elixir': ['elixir-ls'],
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'haskell': ['hie-wrapper'] ,
-    \ 'javascript': ['tsserver', 'javascript-typescript-langserver'],
+    \ 'typescript': ['typescript-language-server', '--stdio']
     \ }
 
 let g:tern#command = ["tern"]
