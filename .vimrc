@@ -52,6 +52,7 @@ Plug 'rust-lang/rls'
 Plug 'elzr/vim-json'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'purescript-contrib/purescript-vim'
 
 Plug 'ocaml/merlin'
 Plug 'OCamlPro/ocp-indent'
