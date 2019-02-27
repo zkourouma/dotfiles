@@ -5,3 +5,4 @@ tflint 0.7.0
 erlang 20.3.8.4
 postgres 10.4
 redis 4.0.9
+golang 1.9.3

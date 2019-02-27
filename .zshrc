@@ -100,8 +100,7 @@ export CLICOLOR=1
 
 export GPG_TTY=$(tty)
 
-export GOROOT_BOOTSTRAP=$GOROOT
-export GOPATH="$HOME/go/mine:$HOME/go/third:$GOPATH"
+export GOPATH="$HOME/go/mine:$HOME/go/third"
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 . $HOME/.asdf/asdf.sh
