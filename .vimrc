@@ -98,7 +98,9 @@ set colorcolumn=100
 set modifiable
 
 au FileType python setl sw=4 sts=4 et
+
 let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {
       \ 'haskell': ['hlint', 'hie-wrapper'],
@@ -107,7 +109,7 @@ let g:ale_linters = {
       \ }
 
 let g:ale_fixers = {
-      \ 'elm': ['elm-format', 'trim_whitespace'],
+      \ 'elm': ['elm-format'],
       \ 'elixir': ['trim_whitespace'],
       \ 'go': ['gofmt', 'trim_whitespace'],
       \ 'haskell': ['hlint', 'brittany', 'trim_whitespace'],
@@ -123,7 +125,6 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 0
-let g:airline#extensions#ale#enabled = 1
 let g:ale_elm_format_options = '--yes --elm-version=0.19'
 let g:ale_haskell_hlint_executable = 'stack'
 
@@ -134,17 +135,14 @@ let g:LanguageClient_serverCommands = {
     \ 'typescript': ['typescript-language-server', '--stdio']
     \ }
 
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-
 let g:pymode_lint_ignore='E501,E309,E731,E266'
 let g:pymode_virtualenv = 1
 let g:pymode_virtualenv_path = $VIRTUAL_ENV
-let g:pymode_rope=0
+let g:pymode_rope = 0
 let g:pymode_python='python3'
 
 let g:go_fmt_command = "goimports"
-let g:elm_format_autosave = 1
+let g:elm_format_autosave = 0
 let g:rustfmt_autosave = 1
 
 cnoreabbrev Ack Ack!

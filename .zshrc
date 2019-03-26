@@ -122,8 +122,8 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-if [ -f /home/zack/.work-tokens.sh ]; then
-   source /home/zack/.work-tokens.sh
+if [ -f $HOME/.work-tokens.sh ]; then
+   source $HOME/.work-tokens.sh
 fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
