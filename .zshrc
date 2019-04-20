@@ -64,8 +64,11 @@ plugins=(
   aws
   colored-man-pages
   common-aliases
+  docker
   git
+  kubectl
   mix
+  npm
   postgres
   sudo
   tmux
@@ -135,7 +138,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias diff='diff-so-fancy'
+# alias diff='diff-so-fancy'
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules --exclude .stack-work --exclude elm-stuff"
