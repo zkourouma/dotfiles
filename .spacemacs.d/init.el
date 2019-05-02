@@ -162,7 +162,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code"
+   dotspacemacs-default-font '("FuraCode Nerd Font"
                                :size 13
                                :weight normal
                                :width normal
@@ -272,7 +272,7 @@ values."
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
-   dotspacemacs-mode-line-theme 'all-the-icons
+   dotspacemacs-mode-line-theme 'vim-powerline
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -344,8 +344,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 	;; aligns annotation to the right hand side
 	(setq company-tooltip-align-annotations t)
   (setq prettier-js-args '(
-    "--trailing-comma" "es5"
-    "--print-width" "120"
+    "--trailing-comma" "all"
+    "--print-width" "110"
   ))
   )
 
@@ -399,7 +399,7 @@ you should place your code here."
  '(hl-sexp-background-color "#121212")
  '(package-selected-packages
    (quote
-    (intero hlint-refactor hindent haskell-snippets flycheck-haskell company-ghci company-ghc ghc company-cabal cmm-mode pretty-mode tide typescript-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode noctilux-theme ample-zen-theme moe-theme ripgrep material-dark-theme-theme material-dark-theme mmm-mode markdown-toc markdown-mode gh-md flycheck-elm helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line helm helm-core ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline smex smeargle restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox orgit org-bullets open-junk-file neotree move-text magit-gitflow macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make haskell-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elm-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile company-statistics column-enforce-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+    (lsp-typescript web-mode prettier-js sql-indent powerline pretty-symbols org-plus-contrib magit-popup lsp-haskell lsp-mode ht hydra lv parent-mode pos-tip flycheck flx highlight magit transient git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree reformatter f projectile pkg-info epl counsel swiper ivy s dash company bind-map bind-key yasnippet packed async all-the-icons memoize avy auto-complete popup intero hlint-refactor hindent haskell-snippets flycheck-haskell company-ghci company-ghc ghc company-cabal cmm-mode pretty-mode tide typescript-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode noctilux-theme ample-zen-theme moe-theme ripgrep material-dark-theme-theme material-dark-theme mmm-mode markdown-toc markdown-mode gh-md flycheck-elm helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line helm helm-core ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline smex smeargle restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox orgit org-bullets open-junk-file neotree move-text magit-gitflow macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make haskell-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elm-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile company-statistics column-enforce-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -427,7 +427,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((((class color) (min-colors 89)) (:foreground "#ffffff" :background "#263238")))))
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
