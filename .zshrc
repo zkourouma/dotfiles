@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/zack/.oh-my-zsh"
+export ZSH=/usr/share/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -105,7 +105,6 @@ export GPG_TTY=$(tty)
 
 export GOPATH="$HOME/go/mine:$HOME/go/third"
 
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
