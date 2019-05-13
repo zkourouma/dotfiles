@@ -344,7 +344,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq lsp-haskell-process-path-hie "hie-wrapper")
 	;; aligns annotation to the right hand side
 	(setq company-tooltip-align-annotations t)
   ; (setq prettier-js-args '(
@@ -367,6 +366,7 @@ you should place your code here."
   (require 'lsp)
   (require 'lsp-clients)
 
+  (setq lsp-haskell-process-path-hie "hie-wrapper")
   (add-hook 'typescript-mode-hook #'lsp)
 
   (require 'pretty-mode)
@@ -376,6 +376,8 @@ you should place your code here."
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
   (add-hook 'typescript-mode-hook 'prettier-js-mode)
+  (add-hook 'json-mode-hook 'prettier-js-mode)
+  (add-hook 'markdown 'prettier-js-mode)
 
   (require 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
