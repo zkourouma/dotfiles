@@ -388,6 +388,9 @@ you should place your code here."
 
   (require 'flycheck)
   (flycheck-add-mode 'javascript-eslint 'web-mode)
+
+  (setq haskell-stylish-on-save t)
+  (setq haskell-mode-stylish-haskell-path "brittany")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
