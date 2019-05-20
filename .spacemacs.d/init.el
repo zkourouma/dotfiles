@@ -54,7 +54,9 @@ values."
                  typescript-fmt-tool 'prettier)
      (haskell :variables
               haskell-completion-backend 'ghci
-              haskell-process-type 'stack-ghci)
+              haskell-process-type 'stack-ghci
+              haskell-stylish-on-save t
+              haskell-mode-stylish-haskell-path "brittany")
      (elm :variables
           elm-sort-imports-on-save t
           elm-format-on-save t
@@ -389,8 +391,6 @@ you should place your code here."
   (require 'flycheck)
   (flycheck-add-mode 'javascript-eslint 'web-mode)
 
-  (setq haskell-stylish-on-save t)
-  (setq haskell-mode-stylish-haskell-path "brittany")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
