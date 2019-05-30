@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(yaml
+   '(
+     yaml
      sql
      lsp
      javascript
@@ -47,20 +48,25 @@ values."
                                                            company-keywords
                                                            company-files
                                                            company-dabbrev
-                                                           company-elm)
-     )
-     (typescript :variables
-                 typescript-fmt-on-save t
-                 typescript-fmt-tool 'prettier)
+                                                           company-elm))
+     (elm :variables
+          elm-sort-imports-on-save t
+          elm-format-on-save t)
      (haskell :variables
               haskell-completion-backend 'ghci
               haskell-process-type 'stack-ghci
               haskell-stylish-on-save t
               haskell-mode-stylish-haskell-path "brittany")
-     (elm :variables
-          elm-sort-imports-on-save t
-          elm-format-on-save t
-          )
+     (rust :variables
+           rust-format-on-save t)
+     (shell :variables
+          shell-default-position 'right
+          shell-default-shell 'multi-term
+          shell-default-term-shell "/usr/bin/zsh")
+     (typescript :variables
+                 typescript-fmt-on-save t
+                 typescript-fmt-tool 'prettier)
+
      ;; better-defaults
      emacs-lisp
      git
@@ -348,10 +354,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 	;; aligns annotation to the right hand side
 	(setq company-tooltip-align-annotations t)
-  ; (setq prettier-js-args '(
-  ;   "--trailing-comma" "es5"
-  ;   "--print-width" "120"
-  ; ))
   )
 
 (defun dotspacemacs/user-config ()
@@ -367,6 +369,8 @@ you should place your code here."
 
   (require 'lsp)
   (require 'lsp-clients)
+  (require 'lsp-ui)
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
   (setq lsp-haskell-process-path-hie "hie-wrapper")
   (add-hook 'typescript-mode-hook #'lsp)
@@ -388,9 +392,23 @@ you should place your code here."
        (add-hook 'web-mode-hook #'add-node-modules-path)
        (add-hook 'web-mode-hook #'prettier-js-mode)))
 
+  (remove-hook 'elm-mode-hook 'elm-indent-mode)
+  (add-to-list 'company-backends 'company-elm)
+
   (require 'flycheck)
   (flycheck-add-mode 'javascript-eslint 'web-mode)
 
+
+  (with-eval-after-load 'lsp-mode
+    (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+    (require 'lsp-rust))
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'company-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+
+  (require 'rust-mode)
+  (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+  (setq company-tooltip-align-annotations t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -459,7 +477,7 @@ This function is called at the very end of Spacemacs initialization."
  '(hl-sexp-background-color "#121212")
  '(package-selected-packages
    (quote
-    (lsp-javascript-typescript web-mode prettier-js sql-indent powerline pretty-symbols org-plus-contrib magit-popup lsp-haskell lsp-mode ht hydra lv parent-mode pos-tip flycheck flx highlight magit transient git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree reformatter f projectile pkg-info epl counsel swiper ivy s dash company bind-map bind-key yasnippet packed async all-the-icons memoize avy auto-complete popup intero hlint-refactor hindent haskell-snippets flycheck-haskell company-ghci company-ghc ghc company-cabal cmm-mode pretty-mode tide typescript-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode noctilux-theme ample-zen-theme moe-theme ripgrep material-dark-theme-theme material-dark-theme mmm-mode markdown-toc markdown-mode gh-md flycheck-elm helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line helm helm-core ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline smex smeargle restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox orgit org-bullets open-junk-file neotree move-text magit-gitflow macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make haskell-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elm-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile company-statistics column-enforce-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+    (xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help lsp-typescript web-mode prettier-js sql-indent powerline pretty-symbols org-plus-contrib magit-popup lsp-haskell lsp-mode ht hydra lv parent-mode pos-tip flycheck flx highlight magit transient git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree reformatter f projectile pkg-info epl counsel swiper ivy s dash company bind-map bind-key yasnippet packed async all-the-icons memoize avy auto-complete popup intero hlint-refactor hindent haskell-snippets flycheck-haskell company-ghci company-ghc ghc company-cabal cmm-mode pretty-mode tide typescript-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode noctilux-theme ample-zen-theme moe-theme ripgrep material-dark-theme-theme material-dark-theme mmm-mode markdown-toc markdown-mode gh-md flycheck-elm helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line helm helm-core ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline smex smeargle restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox orgit org-bullets open-junk-file neotree move-text magit-gitflow macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make haskell-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elm-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile company-statistics column-enforce-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
