@@ -62,19 +62,28 @@ plugins=(
   archlinux
   asdf
   aws
+  cargo
   colored-man-pages
   common-aliases
   docker
+  emacs
+  fzf
   git
   kubectl
+  man
   mix
   npm
   postgres
+  ripgrep
+  rust
+  stack
   sudo
+  systemd
   tmux
   vi-mode
   vundle
   yarn
+  zsh_reload
 )
 
 source $ZSH/oh-my-zsh.sh
